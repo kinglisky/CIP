@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>文化产业平台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Modernizr -->
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <!-- Respond.js for IE 8 or less only -->
+    <!--[if (lt IE 9) & (!IEMobile)]>
+            <script src="js/vendor/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body class="homepage">
+    <!--[if lte IE 7]>
+            <p class="chromeframe">您的浏览器过于老旧了，请升级您的浏览器.</p>
+    <![endif]-->
+
+    <header role="banner" id="headder">
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">文化产业平台</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">主页</a>
+                        </li>
+                        <li><a href="/cloud">文化云</a>
+                        </li>
+                        <li class="active"><a href="#">文化产业</a>
+                        </li>
+                        <%if(username){%>
+                            <%if(identity=="admin"){%>
+                            <li><a href="/admin"><i class="icon fa fa-user"></i><%=username%></a>
+                            <%}else{%>
+                            <li><a href="#"><i class="icon fa fa-user"></i><%=username%></a>
+                            </li>
+                            <%}%>
+                        <li><a href="/out"><i class="icon fa fa-sign-out"></i>退出</a>
+                        </li>
+                        <%}else{%>
+                        <li><a href="#"><i class="icon fa fa-user"></i>未登录</a>
+                        </li>
+                        <li><a href="/login"><i class="icon fa fa-sign-in"></i>登录</a>
+                        </li>
+                        <%}%>
+                        <li><a href="/sigup"><i class="icon fa fa-user-plus"></i>注册</a>
+                        </li>
+                        <li class="">
+                            <form class="navbar-form">
+                                <input type="text" class="form-control" placeholder="请输入查找关键字">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        <section id="home" class="jumbotron">
+            <div class="container">
+                <div class="home-message">
+                    <h1>文化产业化<small>商品平台</small></h1>
+                    <p>构建现代化的信息交易平台<a href="/shop" class="btn btn-lg btn-primary pull-right"><span class="icon fa fa-shopping-cart">文化商城</span></a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="menu">
+            <div class="container">
+                <h1 class="head">文化产业<small></small></h1>
+                <blockquote class="menudescription">
+                    <p>中国文化，是华夏文化为基础，充分整合全国各地域和各民族文化要素而形成的文化。
+                    </p>
+                </blockquote>
+                <div class="reviews contentwrapper">
+
+                </div>
+                <!-- /.reviews -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <section id="submenu">
+            <div class="container">
+                <h1 ><span class="head"></span><a href="#" class="btn btn-info returnmenu">返回目录<i class="icon fa fa-arrow-up"></i></a></h1>
+                <blockquote class="menudescription">
+                    <p>中国民间工艺</p>
+                </blockquote>
+                <div class="reviews contentwrapper">
+
+                </div>
+            </div>
+        </section>
+         <section id="thrmenu">
+            <div class="container">
+                <h1 ><span class="head"></span><a href="#" class="btn btn-info returnmenu">返回目录<i class="icon fa fa-arrow-up"></i></a></h1>
+                <blockquote class="menudescription">
+                    <p>中国民间工艺</p>
+                </blockquote>
+                <div class="reviews contentwrapper">
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="toTop">
+        <a href="#headder"><i class="icon fa fa-arrow-up"></i></a>
+    </div>
+    <footer role="contentinfo">
+        <p class="col-xs-10 col-xs-offset-1">
+            版权所有：安阳市投资集团有限公司
+        </p>
+    </footer>
+    <!--模板-->
+    <script type="templata" id="menutemplata">
+    {@each menus as item,index}
+    <div class="hreviewra thumbnail col-sm-6 col-md-4">
+        <div class="hreview">
+            <a href="${murl}?code=${item.code}&use=show" data-index="${index}">
+               <img src="${item.imgurl}" alt="${item.name}">
+            <a>
+            <div class="caption">
+               <blockquote class="description">
+                  <p>${item.description|cutDescription}</p>
+               </blockquote>
+               <a href="#${item.code}" data-index="${index}">
+                  <h3 class="title">${item.name}</h3>
+               </a>
+               {@if shop}
+               <a href="/shop?key=${item.name}" class="btn btn-info" target="_blank">
+                  <h3 class="title">
+                    <i class="icon fa fa-shopping-cart"></i>
+                    去商城看看
+                  </h3>
+               </a>
+               {@/if}
+            </div>
+        </div>
+    </div>
+    {@/each}
+    </script>
+    <!--模板-->
+    <!-- JavaScript -->
+    <script src="js/vendor/jquery-1.10.2.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/vendor/juicer-min.js"></script>
+    <script src="js/dealCode.js"></script>
+    <script src="js/cultureshow.js"></script>
+</body>
+
+</html>

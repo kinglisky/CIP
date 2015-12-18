@@ -1,0 +1,20 @@
+[
+	{
+		"code":"01",
+		"name":"中国饮食文化",
+		"description":"中国饮食文化的描述",
+		"imgurl":"img/data/00.jpg"
+	},
+	{
+		"code":"02",
+		"name":"中国传统艺术文化",
+		"description":"中国传统艺术文化的描述",
+		"imgurl":"img/data/01.jpg"
+	},
+	{
+		"code":"03",
+		"name":"中国文学文化",
+		"description":"中国文学文化的描述",
+		"imgurl":"img/data/02.jpg"
+	}
+]

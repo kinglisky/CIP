@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>后台管理界面</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Modernizr -->
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <!-- Respond.js for IE 8 or less only -->
+    <!--[if (lt IE 9) & (!IEMobile)]>
+            <script src="js/vendor/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body class="homepage">
+    <!--[if lte IE 7]>
+            <p class="chromeframe">您的浏览器过于老旧了，请升级您的浏览器.</p>
+    <![endif]-->
+
+    <header role="banner">
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">后台管理界面</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">平台主页</a>
+                        </li>
+                        <li class="active"><a href="#">产业模板</a>
+                        </li>
+                        <li><a href="/admin?go=2">商品模板</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icon fa fa-user"></i><%=name%></a>
+                        </li>
+                        <li><a href="/out">退出</a>
+                        </li>
+                        <li class="" id="find">
+                            <form class="navbar-form">
+                                <input type="text" class="form-control" placeholder="请输入查找关键字">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main">
+        <section id="MenuModule">
+            <div class="container">
+                <h1>产业模块</h1>
+                <div class="row mwrapper">
+
+                </div>
+            </div>
+        </section>
+        <section id="SMenuModule">
+        <div class="container">
+                <h2>产业<button class="returnMenu">返回上级目录<i class="icon fa fa-replay"></i></button></h2>
+                <div class="row mwrapper">
+                </div>
+            </div>
+        </section>
+        <section id="TMenuModule">
+             <div class="container">
+                <div class="load">
+                  <div><i class="icon fa fa-spinner fa-spin"></i></div>
+                </div>
+                <h3 class="">产品模型<a class="returnmenu" href="##">返回上级目录<i class="icon fa fa-arrow-up"></i></a></h3>
+                <div class="reviews mwrapper">
+
+                </div>
+             </div>
+        </section>
+    </main>
+    <footer role="contentinfo">
+        <p class="col-xs-10 col-xs-offset-1">
+            版权所有：安阳市投资集团有限公司
+        </p>
+    </footer>
+    <!--以下为模板-->
+    <script type="templata" id="menuTemplata">
+    <div class="features-item col-sm-6 col-md-4 addMenu">
+        <form action="${action|setAction}" method="post" class="pushMenu">
+            {@if mcode}
+             <input type="hidden" name="mcode" id="hmcode" value="${mcode}">
+            {@/if}
+            <input type="text" class="name" name="name" placeholder="请输入产业块名称">
+            <textarea name="description" class="description" cols="30" rows="5" placeholder="输入产业块的描述"></textarea>
+            <button type="submit"><i class="icon fa fa-plus"></i></button>
+        </form>
+    </div>
+    {@if menus.length>0}
+    {@each menus as item,index}
+    <div class="features-item col-sm-6 col-md-4">
+        <a href="${geturl}?code=${item.code}" data-code="${item.code}"><span class="icon fa fa-folder"></span></a>
+        <h2>${item.name}</h2>
+        <p>${item.description|cutDescription}</p>
+        <div class="btn-group" role="group">
+            <a type="button" href="${durl}?code=${item.code}&delete=true" class="btn btn-default delete">删除</a>
+        </div>
+    </div>
+    {@/each}
+    {@/if}
+    </script>
+    <script type="templata" id="tmenuTemplata">
+    <div class="hreviewra thumbnail col-sm-6 col-md-4" id="dragwrapper">
+    请将图片文件拖拽到此处
+    </div>
+    {@if menus.length>0}
+    {@each menus as item,index}
+    <div class="hreviewra thumbnail col-sm-6 col-md-4">
+        <div class="hreview">
+            <a href="#${item.code}" data-index="${index}">
+               <img src="${item.imgurl}" alt="${item.name}">
+            <a>
+            <div class="caption">
+               <blockquote class="description">
+                  <p>${item.description|cutDescription}</p>
+               </blockquote>
+               <a href="#${item.code}" data-index="${index}">
+                  <h3 class="title">${item.name}</h3>
+               </a>
+            </div>
+            <div class="change">
+                  <div class="btn-group" role="group">
+                    <a type="button" href="${durl}?code=${item.code}&delete=true" class="btn btn-default delete">删除</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {@/each}
+    {@/if}
+    </script>
+    <script type="templata" id="dragTemplata">
+    {@if menus}
+    {@each i in range(0, menus)}
+    <div class="hreviewra thumbnail col-sm-6 col-md-4">
+        <div class="hreview">
+            <a href="#" data-index="${i}">
+                <img src="">
+            </a>
+            <div class="tmenumsg">
+                <input type="text" class="name" placeholder="输入商品名">
+                <textarea class="description" cols="30" rows="5" placeholder="输入商品描述"></textarea>
+            </div>
+        </div>
+    </div>
+    {@/each}
+    {@/if}
+    <div class="hreviewra thumbnail col-sm-6 col-md-4" id="toAddGoods" data-code="${code}">
+        <div><i class="icon fa fa-plus"></i></div>
+    </div>
+    </script>
+    <!-- JavaScript -->
+    <script src="js/vendor/jquery-1.10.2.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/dealCode.js"></script>
+    <script src="js/vendor/juicer-min.js"></script>
+    <script src="js/adminMenu.js"></script>
+</body>
+
+</html>

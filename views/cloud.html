@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>文化产业平台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Modernizr -->
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <!-- Respond.js for IE 8 or less only -->
+    <!--[if (lt IE 9) & (!IEMobile)]>
+            <script src="js/vendor/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body class="homepage">
+    <!--[if lte IE 7]>
+            <p class="chromeframe">您的浏览器过于老旧了，请升级您的浏览器.</p>
+    <![endif]-->
+
+    <header role="banner" id="headder">
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">文化产业平台</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">主页</a>
+                        </li>
+                        <li class="active"><a href="#">文化云</a>
+                        </li>
+                        <li><a href="/culture">文化产业</a>
+                        </li>
+                        <%if(username){%>
+                            <%if(identity=="admin"){%>
+                            <li><a href="/admin"><i class="icon fa fa-user"></i><%=username%></a>
+                            <%}else{%>
+                            <li><a href="#"><i class="icon fa fa-user"></i><%=username%></a>
+                            </li>
+                            <%}%>
+                        <li><a href="/out"><i class="icon fa fa-sign-out"></i>退出</a>
+                        </li>
+                        <%}else{%>
+                        <li><a href="#"><i class="icon fa fa-user"></i>未登录</a>
+                        </li>
+                        <li><a href="/login"><i class="icon fa fa-sign-in"></i>登录</a>
+                        </li>
+                        <%}%>
+                        <li><a href="/sigup"><i class="icon fa fa-user-plus"></i>注册</a>
+                        </li>
+                        <li class="" id="find">
+                            <form class="navbar-form">
+                                <input type="text" class="form-control" placeholder="请输入查找关键字">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!--/.container -->
+        </nav>
+    </header>
+
+    <main role="main">
+        <section id="home" class="jumbotron">
+            <div class="container">
+                <div class="home-message">
+                    <h1>文化多元化<small>共同构建</small></h1>
+                    <p>多平台的相互合作<a href="/shop" class="btn btn-lg btn-primary pull-right"><span class="icon fa fa-shopping-cart">文化商城</span></a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                   <h1>文化云平台</h1>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-building"></span></a>
+                        <h2>文化产业</h2>
+                        <p>基于文化的产业链</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-flag"></span></a>
+                        <h2>文化遗产</h2>
+                        <p>价值不可估量文化积淀</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-cloud"></span></a>
+                        <h2>文化思想</h2>
+                        <p>诸子百家，思想交融</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-sitemap"></span></a>
+                        <h2>文化传承</h2>
+                        <p>传承历史，传承文化</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-comment"></span></a>
+                        <h2>文化论坛</h2>
+                        <p>提供一个丰富的百家讲堂</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-tree"></span></a>
+                        <h2>文化新常态</h2>
+                        <p>事物的固有形式</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-yelp"></span></a>
+                        <h2>文化传播</h2>
+                        <p>大漠孤烟直，丝路漫漫</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-comments"></span></a>
+                        <h2>文化交流</h2>
+                        <p>你的，和我的，大家的</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-indent"></span></a>
+                        <h2>文化整合</h2>
+                        <p>文化要素触类旁通</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-book"></span></a>
+                        <h2>理论研究</h2>
+                        <p>以史为鉴，学以致用</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-lastfm"></span></a>
+                        <h2>新文化</h2>
+                        <p>百年新文化运动</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-globe"></span></a>
+                        <h2>文化互联网</h2>
+                        <p>信息时代的文化传播方式</p>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+
+    </main>
+    <div id="toTop">
+        <a href="#headder"><i class="icon fa fa-arrow-up"></i></a>
+    </div>
+    <footer role="contentinfo">
+        <p class="col-xs-10 col-xs-offset-1">
+            版权所有：安阳市投资集团有限公司
+        </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/vendor/jquery-1.10.2.min.js"></script>
+    <script src="js/plugins.js"></script>
+</body>
+
+</html>

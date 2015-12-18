@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>文化产业平台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Modernizr -->
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <!-- Respond.js for IE 8 or less only -->
+    <!--[if (lt IE 9) & (!IEMobile)]>
+            <script src="js/vendor/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body class="homepage">
+    <!--[if lte IE 7]>
+            <p class="chromeframe">您的浏览器过于老旧了，请升级您的浏览器.</p>
+    <![endif]-->
+
+    <header role="banner" id="headder">
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">文化产业平台</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">主页</a>
+                        </li>
+                        <li><a href="/cloud">文化云</a>
+                        </li>
+                        <li><a href="/culture">文化产业</a>
+                        </li>
+                        <%if(username){%>
+                            <%if(identity=="admin"){%>
+                            <li><a href="/admin"><i class="icon fa fa-user"></i><%=username%></a>
+                            <%}else{%>
+                            <li><a href="#"><i class="icon fa fa-user"></i><%=username%></a>
+                            </li>
+                            <%}%>
+                        <li><a href="/out"><i class="icon fa fa-sign-out"></i>退出</a>
+                        </li>
+                        <%}else{%>
+                        <li><a href="#"><i class="icon fa fa-user"></i>未登录</a>
+                        </li>
+                        <li><a href="/login"><i class="icon fa fa-sign-in"></i>登录</a>
+                        </li>
+                        <%}%>
+                        <li><a href="/sigup"><i class="icon fa fa-user-plus"></i>注册</a>
+                        </li>
+                        <li class="">
+                            <form class="navbar-form">
+                                <input type="text" class="form-control" placeholder="请输入查找关键字">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+
+        <!-- INTRO SECTION -->
+        <section id="home" class="jumbotron">
+            <div class="container">
+                <div class="home-message">
+                    <h1 style=""><strong>文化产业</strong><span>平台</span></h1>
+                    <p>构建互联网+文化产业平台<em></em><a href="/shop" class="btn btn-lg btn-primary pull-right"><span class="icon fa fa-shopping-cart"></span>文化商城</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="container">
+                <h1>平台体系</h1>
+                <div class="row">
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-pie-chart"></span></a>
+                        <h2>价值体系</h2>
+                        <p>专业的价格评估</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-gavel"></span></a>
+                        <h2>风险保障</h2>
+                        <p>科学的风险控制</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-train"></span></a>
+                        <h2>包装运输</h2>
+                        <p>高效的运输包装保证</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-inbox"></span></a>
+                        <h2>储存环境</h2>
+                        <p>一流商品库存环境</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-wrench"></span></a>
+                        <h2>修护体系</h2>
+                        <p>专业的特色维护</p>
+                    </div>
+                    <div class="features-item col-sm-6 col-md-4">
+                        <a href="#"><span class="icon fa fa-shield"></span></a>
+                        <h2>保险体系</h2>
+                        <p>商业化保险产品服务</p>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+
+    </main>
+    <div id="toTop">
+        <a href="#headder"><i class="icon fa fa-arrow-up"></i></a>
+    </div>
+    <footer role="contentinfo">
+        <p class="col-xs-10 col-xs-offset-1">
+            版权所有：安阳市投资集团有限公司
+        </p>
+    </footer>
+    <!-- JavaScript -->
+    <script src="js/vendor/jquery-1.10.2.min.js"></script>
+    <script src="js/plugins.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+{
+    GoodsInfo: [{
+        "GoodsID": "1",
+        "ClassID": "2",
+        "GoodsName": "2",
+        "GoodsIntroduce": "2",
+        "GoodsBrand": "2",
+        "GoodsUnit": "2",
+        "GoodsWeight": "3",
+        "GoodsUrl": "3",
+        "MarketPrice": "4",
+        "MemberPrice": "3",
+        "Isrefinement": "True",
+        "IsHot": "True",
+        "AddDate": "2001/12/12 0:00:00",
+        "IsDiscount": "False",
+    }, {
+        "GoodsID": "2",
+        "ClassID": "2",
+        "GoodsName": "aaasd",
+        "GoodsIntroduce": "asd",
+        "GoodsBrand": "asd",
+        "GoodsUnit": "asd",
+        "GoodsWeight": "12",
+        "GoodsUrl": "",
+        "MarketPrice": "",
+        "MemberPrice": "",
+        "Isrefinement": "False",
+        "IsHot": "False",
+        "AddDate": "2015/7/23 15:48:07",
+        "IsDiscount": "False",
+    }]
+}

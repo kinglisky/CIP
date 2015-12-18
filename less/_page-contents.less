@@ -1,0 +1,196 @@
+//
+// Page Contents
+// ---------------------------
+ body {
+    padding-top: @navbar-height;
+
+}
+#home {
+    height: 300px;
+    background-color: #191919;
+    color: #fff;
+    position: relative;
+    .home-message {
+        background-color: hsla(0, 0, 1%, 0.4); // translucent overlay
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 20px 40px;
+        strong {
+            font-size: 1.5em;
+            text-transform: uppercase;
+        }
+        h1{
+            span{
+                margin:10px 0;
+            }
+        }
+    }
+    .btn {
+        margin-top: 16px;
+        background-color: rgba(204, 204, 204,0.3);
+        border-color: rgba(204, 204, 204,0.3);
+    }
+    @media (max-width: @screen-sm-max) {
+        background: #191919 url('../img/dahai.jpg') center center no-repeat;
+    }
+    @media (min-width: @screen-sm-min) {
+        height: 480px;
+        .container {
+            position: relative;
+        }
+        .home-message {
+            right: 20%;
+            bottom: auto;
+            strong {
+                display: block;
+            }
+        }
+    }
+    @media (min-width: @screen-md-min) {
+        height: 500px;
+        background: #191919 url('../img/dahai_big.jpg') center center no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        .home-message {
+            right: 50%;
+        }
+    }
+}
+#aboutus {
+    .features-item {
+        text-align: center;
+        padding: 20px;
+        height: 270px;
+        .icon {
+            font-size: 90px;
+        }
+        @media (max-width: @screen-xs-max) {
+            max-width: 320px;
+            .center-block();
+        }
+    }
+}
+#show {
+	.hreview {
+	  position: relative;
+	  padding: 0 10px;
+	  border:none;
+        >a{
+            display: block;
+            padding: 0;
+            width: 100%;
+            >img{
+                display: block;
+                width: 100%;
+                border: 5px solid #2f1706;
+            }
+        }
+
+	}
+  .caption {
+    position: absolute;
+    top: auto;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    line-height: 1.1;
+    background: hsla(0,0,10%,0.55);
+    blockquote,
+  	.title {
+      margin: 0 6px;
+      padding: 0;
+    }
+    blockquote {
+	    margin-top: 4px;
+	    border: none;
+	    font-family: @font-family-serif;
+	    font-size: @font-size-large;
+	    color: #fff;
+	  }
+	  .title {
+	    margin-top: 2px;
+	    margin-bottom: 4px;
+	    text-align: right;
+	    color: @gray-lighter;
+	  }
+	}
+	.review-item-1 .caption {
+	  top: 0;
+	  left: 10px;
+	  right: 20%;
+	  bottom: auto;
+	}
+	.review-item-2 .caption {
+	  top: auto;
+	  left: 10px;
+	  right: 17%;
+	  bottom: 0;
+	}
+	.review-item-3 .caption {
+	  top: auto;
+	  left: 17%;
+	  right: 10px;
+	  bottom: 0;
+	}
+	.review-item-4 .caption {
+    top: 0;
+    left: 62%;
+    right: 10px;
+    bottom: auto;
+    .title {
+      margin-top: 6px;
+      text-align: left;
+    }
+  }
+  .review-item-5 .caption {
+    top: 0;
+    left: 17%;
+    right: 10px;
+    bottom: auto;
+  }
+	.review-item-6 .caption {
+	  top: 0;
+	  left: 10px;
+	  right: 63%;
+	  bottom: auto;
+	  .title {
+	    margin-top: 6px;
+	    text-align: left;
+	  }
+	}
+	.review-item-7 .caption {
+	  top: 0;
+	  left: 62%;
+	  right: 10px;
+	  bottom: auto;
+	  .title {
+	    margin-top: 6px;
+	    text-align: left;
+	  }
+	}
+}
+#toTop {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 5%;
+  bottom: 5%;
+}
+#toTop > a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  font-size: 40px;
+  line-height: 50px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+}
+#toTop > a:hover {
+  color: #ccc;
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>后台管理界面</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Modernizr -->
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <!-- Respond.js for IE 8 or less only -->
+    <!--[if (lt IE 9) & (!IEMobile)]>
+            <script src="js/vendor/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body class="homepage">
+    <!--[if lte IE 7]>
+            <p class="chromeframe">您的浏览器过于老旧了，请升级您的浏览器.</p>
+    <![endif]-->
+
+    <header role="banner">
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">后台管理界面</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">平台主页</a>
+                        </li>
+                        <li><a href="/admin?go=1">产业模板</a>
+                        </li>
+                        <li class="active"><a href="/admin?go=2">商品模板</a>
+                        </li>
+                        <li>
+                        <a href="#"><i class="icon fa fa-user"></i><%=name%></a>
+                        </li>
+                        <li><a href="/out">退出</a>
+                        </li>
+                        <li class="" id="find">
+                            <form class="navbar-form">
+                                <input type="text" class="form-control" placeholder="请输入查找关键字">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main">
+        <section id="goodsclassModule">
+            <div class="container">
+                <div class="ctrlhead">
+                    <h2 class="ctrlTitle">商品管理</h2>
+                    <hr>
+                </div>
+                <div class="row" id="menusWrapper">
+
+                </div>
+            </div>
+        </section>
+        <section id="goodsModule">
+            <div class="load">
+               <div><i class="icon fa fa-spinner fa-spin"></i></div>
+           </div>
+            <div class="container">
+                <h3>商品<a href="#" class="returnmenu">返回目录<i class="icon fa fa-times-circle"></i></a></h3>
+                <div class="reviews" id="shopsMenuWrapper">
+                    <div class="hreviewra thumbnail col-sm-6 col-md-4" id="dragwrapper">
+                    请将图片文件拖拽到此处
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p class="col-xs-10 col-xs-offset-1">
+            版权所有：安阳市投资集团有限公司
+        </p>
+    </footer>
+    <!--以下为模板-->
+    <script type="templata" id="menuTemplata">
+    <div class="addModul col-sm-6 col-md-4">
+        <form class="form-inline" action="${posturl}" id="addgclass">
+              <div class="form-group">
+                <label for="gclassname" class="sr-only"></label>
+                <input type="type" class="form-control" id="addgc" name="gclassname" placeholder="输入商品分类">
+              </div>
+              <button type="submit" class="btn btn-default"><i class="icon fa fa-plus"></i></button>
+        </form>
+     </div>
+    {@if menus.length>0}
+    {@each menus as item}
+    <div class="features-item col-sm-6 col-md-4">
+        <a href="?code=${item.code}" data-code="${item.code}"><span class="icon fa fa-folder"></span></a>
+        <h2>${item.name}</h2>
+        <div class="btn-group" role="group">
+            <a type="button" href="/gcmenu?code=${item.code}&delete=true" class="btn btn-default delete">删除</a>
+        </div>
+    </div>
+    {@/each}
+    {@/if}
+    </script>
+    <script type="templata" id="subMenuTemplata">
+    <div class="hreviewra thumbnail col-sm-6 col-md-4" id="dragwrapper">
+    请将图片文件拖拽到此处
+    </div>
+    {@if menus.length>0}
+    {@each menus as item,index}
+    <div class="hreviewra thumbnail col-sm-6 col-md-4">
+        <div class="hreview">
+            <a href="#" data-index="${index}">
+               <img src="${item.imgurl}" alt="${item.name}">
+            </a>
+            <div class="caption">
+               <blockquote class="description">
+                  <p>${item.description|cutDescription}</p>
+               </blockquote>
+               <h3 class="msg"><i class="icon fa fa-jpy">
+                  </i><span>${item.price}</span>
+               </h3>
+                <h3 class="msg">${item.name}</h3>
+
+            </div>
+            <div class="change">
+                  <div class="btn-group" role="group">
+                    <a type="button" href="/goods?code=${item.code}&delete=true" class="btn btn-default delete">删除</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {@/each}
+    {@/if}
+    </script>
+    <script type="templata" id="addSubMenuTemplata">
+    {@if goods}
+    {@each i in range(0, goods)}
+    <div class="hreviewra thumbnail col-sm-6 col-md-4">
+        <div class="hreview">
+            <a href="#" data-index="${i}">
+                <img src="">
+            </a>
+            <div class="goodsmsg">
+                <input type="text" class="gname" placeholder="输入商品名">
+                <input type="text" class="gprice" placeholder="输入价格">
+                <textarea class="gdescription" cols="30" rows="5" placeholder="输入商品描述"></textarea>
+            </div>
+        </div>
+    </div>
+    {@/each}
+    {@/if}
+    <div class="hreviewra thumbnail col-sm-6 col-md-4" id="toAddGoods" data-code="${code}">
+        <div><i class="icon fa fa-plus"></i></div>
+    </div>
+    </script>
+    <!-- JavaScript -->
+    <script src="js/vendor/jquery-1.10.2.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/vendor/juicer-min.js"></script>
+    <script src="js/dealCode.js"></script>
+    <script src="js/adminGoods.js"></script>
+</body>
+
+</html>
