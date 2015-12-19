@@ -1,4 +1,5 @@
 var express = require('express');
+var dbinit=require('./dbctrl/dbinit');
 /*好像是对路由路径进行处理用的*/
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -11,7 +12,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-var listenport = 8000;
+var listenport = process.env.VCAP_APP_PORT || 3000;
+dbinit.init();
 app.listen(listenport);
 
 // 设置默认的模板引擎
