@@ -237,7 +237,7 @@ dbinteraction.getGoodsKey = function(key, callback) {
     });
 }
 dbinteraction.getMenu = function(use, callback) {
-    var query = 'SELECT * FROM CMenu ORDER BY mcode DESC;';;
+    var query = 'SELECT * FROM cmenu ORDER BY mcode DESC;';;
     var result = [];
     conn.query(query, function(err, rows, fields) {
         if (err) {
