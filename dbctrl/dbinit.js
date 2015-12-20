@@ -34,24 +34,25 @@ var mysql = require('mysql'),
 	}],
 	Qlen = creates.length;
 dbctrl = {
-	run: function (conn, index) {
+	run: function (conn, index,callback) {
 		if (index === Qlen) {
 			conn.end();
-			return console.log('数据库初始化完成！！');
+			console.log('数据库初始化完成！！');
+			return callback();
 		}
 		var item = creates[index],
 			query = cfg[item.key]
 		conn.query(query, function (err) {
 			if (err) return console.log(item.key, item.msg + ' 出错！', err);
 			console.log(item.key, item.msg + ' 成功');
-			dbctrl.run(conn, ++index);
+			dbctrl.run(conn, ++index,callback);
 		});
 	},
-	init: function () {
+	init: function (callback) {
 		var index = 0;
 		conn = mysql.createConnection(cfg.config);
 		conn.connect();
-		dbctrl.run(conn, index);
+		dbctrl.run(conn, index,callback);
 
 	}
 }

@@ -16,7 +16,9 @@ var cfg = {
 	},*/
 	config:serverConfig,
 	createDatabase: "CREATE DATABASE IF NOT EXISTS " + serverConfig.database,
+//	createDatabase: "CREATE DATABASE IF NOT EXISTS cps",
 	useDatabase: "USE " + serverConfig.database,
+//	useDatabase: "USE cps",
 	createCMenu: "CREATE TABLE IF NOT EXISTS cmenu (" +
 		"mcode int(8) NOT NULL AUTO_INCREMENT," +
 		"cname varchar(40) NOT NULL," +
