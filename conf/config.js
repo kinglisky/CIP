@@ -10,7 +10,7 @@ var coding_application = JSON.parse(process.env.VCAP_APPLICATION);
 var cfg = {
 	"host": coding_services.mysql[0].credentials.hostname,
 	"user": coding_services.mysql[0].credentials.username,
-	"password": coding_services.mysql[0].credentials.password,,
+	"password": coding_services.mysql[0].credentials.password,
 	"database": "cps",
 	"port": 3306
 }
