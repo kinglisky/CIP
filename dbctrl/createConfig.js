@@ -1,5 +1,12 @@
 var coding_services = JSON.parse(process.env.VCAP_SERVICES);
-var coding_application = JSON.parse(process.env.VCAP_APPLICATION);
+var coding_application = JSON.parse(process.env.VCAP_APPLICATION),
+	serverConfig = {
+		"host": coding_services.mysql[0].credentials.hostname,
+		"user": coding_services.mysql[0].credentials.username,
+		"password": coding_services.mysql[0].credentials.password,
+		"database": coding_services.mysql[0].credentials.name,
+		"port": 3306
+	}
 var cfg = {
 	/*config: {
 		"host": "127.0.0.1",
@@ -7,15 +14,9 @@ var cfg = {
 		"password": "710579",
 		"port": 3306
 	},*/
-	config: {
-		"host": coding_services.mysql[0].credentials.hostname,
-		"user": coding_services.mysql[0].credentials.username,
-		"password": coding_services.mysql[0].credentials.password,
-		"database":coding_services.mysql[0].credentials.name,
-		"port": 3306
-	},
-	createDatabase: "CREATE DATABASE IF NOT EXISTS "+cfg.config.database,
-	useDatabase: "USE "+cfg.config.database,
+	config:serverConfig,
+	createDatabase: "CREATE DATABASE IF NOT EXISTS " + serverConfig.database,
+	useDatabase: "USE " + serverConfig.database,
 	createCMenu: "CREATE TABLE IF NOT EXISTS cmenu (" +
 		"mcode int(8) NOT NULL AUTO_INCREMENT," +
 		"cname varchar(40) NOT NULL," +
