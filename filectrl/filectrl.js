@@ -9,15 +9,15 @@ filectrl.markdir = function(foldername, callback) {
                 if (err) {
                     console.log("建立文件夹出错！:" + err);
                     err = "建立文件夹出错！";
-                    callback(err, null);
-                    return;
+                    return callback(err, null);
+
                 }
                 console.log(foldername + '建立成功！');
             });
         }
         mark = 200;
-        callback(null, mark);
-        return;
+        return callback(null, mark);
+
     });
 }
 filectrl.savePicture = function(req, res, callback) {
@@ -67,11 +67,10 @@ filectrl.savePicture = function(req, res, callback) {
             fs.rename(file.path, newpath, function(err) {
                 if (err) {
                     console.log("改变图片路径出错！" + err);
-                    callback(err, null);
-                    return
+                    return callback(err, null);
+
                 }
-                callback(null, result);
-                return;
+                return callback(null, result);
             });
 
         }
@@ -116,11 +115,11 @@ filectrl.saveMenuPicture = function(req, res, callback) {
             fs.rename(file.path, newpath, function(err) {
                 if (err) {
                     console.log("改变图片路径出错！" + err);
-                    callback(err, null);
-                    return
+                    return callback(err, null);
+
                 }
-                callback(null, result);
-                return;
+                return callback(null, result);
+
             });
 
         }
@@ -142,8 +141,8 @@ filectrl.deletePath = function(path, callback) {
         callback(null, "Ye");
     } else {
         console.log("路径或文件不存在："+path);
-        callback(null, "No");
-        return;
+        return callback(null, "No");
+
     }
 }
 filectrl.getSuffix = function(filename) {
