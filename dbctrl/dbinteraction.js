@@ -1,5 +1,5 @@
 var mysql = require('mysql'),
-    sqlconfig = require('../conf/config.json'),
+    sqlconfig = require('../conf/config'),
     conn = {},
     dbinteraction = {};
 (function handleError() {

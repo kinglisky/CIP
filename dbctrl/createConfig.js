@@ -1,12 +1,20 @@
+var coding_services = JSON.parse(process.env.VCAP_SERVICES);
+var coding_application = JSON.parse(process.env.VCAP_APPLICATION);
 var cfg = {
-	config: {
+	/*config: {
 		"host": "127.0.0.1",
 		"user": "root",
 		"password": "710579",
 		"port": 3306
+	},*/
+	config: {
+		"host": coding_services.mysql[0].credentials.hostname,
+		"user": coding_services.mysql[0].credentials.username,
+		"password": coding_services.mysql[0].credentials.password,
+		"port": 3306
 	},
 	createDatabase: "CREATE DATABASE IF NOT EXISTS cps",
-	useDatabase:"USE cps",
+	useDatabase: "USE cps",
 	createCMenu: "CREATE TABLE IF NOT EXISTS cmenu (" +
 		"mcode int(8) NOT NULL AUTO_INCREMENT," +
 		"cname varchar(40) NOT NULL," +
@@ -67,7 +75,7 @@ var cfg = {
 		"UNIQUE KEY username (username)," +
 		"KEY indexuser_id (userid)" +
 		") ENGINE=InnoDB DEFAULT CHARSET=utf8",
-	deleteAdmin:"DELETE FROM users WHERE username='admin'",
+	deleteAdmin: "DELETE FROM users WHERE username='admin'",
 	insertAdmin: "insert  into users(userid,username,userpassword,useridentity)" +
 		"values (24,'admin','21232f297a57a5a743894a0e4a801fc3','admin')"
 
