@@ -55,7 +55,6 @@ boos的要求大致如此，然后丢下一句话，你造着网上栗子看着�
 
 [安阳投资集团 互联网+项目---文化产业平台产品原型 演示](http://cip.coding.io/)
 
-[源码](https://coding.net/u/kingli/p/CPS/git)
 
 
 
