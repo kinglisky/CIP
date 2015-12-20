@@ -290,7 +290,7 @@ dbinteraction.getMenu = function(use, callback) {
     });
 }
 dbinteraction.pushMenu = function(name, description, callback) {
-    var query = 'INSERT INTO CMenu(cname,description)VALUE("' + name + '","' + description + '");';
+    var query = 'INSERT INTO cmenu(cname,description)VALUE("' + name + '","' + description + '");';
     var result = "";
     conn.query(query, function(err, rows, fields) {
         if (err) {
@@ -299,7 +299,7 @@ dbinteraction.pushMenu = function(name, description, callback) {
             callback(err, null);
             return;
         }
-        query = 'SELECT * FROM CMenu WHERE cname="' + name + '";';
+        query = 'SELECT * FROM cmenu WHERE cname="' + name + '";';
         conn.query(query, function(err, rows, fields) {
             if (err) {
                 console.log("查询一级文化块code出错：" + err);
@@ -314,7 +314,7 @@ dbinteraction.pushMenu = function(name, description, callback) {
     });
 }
 dbinteraction.deleteMenu = function(code, callback) {
-    var query = 'DELETE FROM CMenu WHERE mcode=' + code + ';';
+    var query = 'DELETE FROM cmenu WHERE mcode=' + code + ';';
     var result = "";
     conn.query(query, function(err, rows, fields) {
         if (err) {
