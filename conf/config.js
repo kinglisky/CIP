@@ -11,7 +11,7 @@ var cfg = {
 	"host": coding_services.mysql[0].credentials.hostname,
 	"user": coding_services.mysql[0].credentials.username,
 	"password": coding_services.mysql[0].credentials.password,
-	"database": "cps",
+	"database": coding_services.mysql[0].credentials.name,
 	"port": 3306
 }
 module.exports = cfg;
